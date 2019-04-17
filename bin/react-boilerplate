@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+
+const { resolve } = require('path')
+
+const res = command => resolve(__dirname, '../commands/', command)
+
+const program = require('commander')
+
+program
+  .version(require('../package').version)
+
+program
+  .usage('<command>')
+
+program
+  .command('create <projectname>')
+  .description('create a new project')
+  .action((projectname) => {
+    require(res('create'))
+  })
+
+program.parse(process.argv)
+
+if (!program.args.length) {
+  program.help()
+}
