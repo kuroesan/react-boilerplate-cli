@@ -22,7 +22,10 @@ Open your terminal and type `react-boilerplate` or `react-boilerplate -h` , you'
 
   Commands:
 
-    create     create a new project
+    create|c <projectname>  create a new project
+    add|a                   add a new boilerplate
+    delete|d                delete a boilerplate
+    list|l                  show boilerplate list
 
   Options:
 

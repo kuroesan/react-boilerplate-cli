@@ -10,16 +10,12 @@ const question = [
     type: 'list',
     name: 'boilerpalte',
     message: 'select the boilerpalte of the project:',
-    choices: [
-      "react-next-antd-boilerplate",
-      "react-antd-boilerplate",
-      "react-antd-mobile-boilerplate",
-    ]
+    choices: Object.keys(tplList)
   }
 ]
 
 module.exports = prompt(question).then(({ boilerpalte }) => {
-  const projectName = process.argv[3]
+  const projectName = process.argv[3] || boilerpalte
   const gitPlace = tplList[boilerpalte]
   const spinner = ora('Downloading Boilerplate...')
   spinner.start()
